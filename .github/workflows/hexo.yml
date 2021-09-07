@@ -52,7 +52,6 @@ jobs:
           deploy_key: ${{ secrets.DEPLOY_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
-          disable_nojekyll: true
 
       - name: Get the output
         run: |
