@@ -53,6 +53,14 @@ jobs:
               exit
           fi
 
+      - name: Setting git authen
+        run: |
+          /usr/bin/git remote rm origin
+          /usr/bin/git remote add origin ***github.com/${{ github.repository }}.git
+          /usr/bin/git add --all
+          /usr/bin/git config user.name ${{ github.actor }}
+          /usr/bin/git config user.email ${{ github.actor }}@users.noreply.github.com
+
       - name: Deploy
         run: hexo clean && hexo deploy
           
