@@ -43,7 +43,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run build
+        run: npm run build && npm run deploy
           
       - name: Deploy
         # You may pin to the exact commit or the version.
