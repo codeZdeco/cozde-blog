@@ -52,6 +52,10 @@ jobs:
           deploy_key: ${{ secrets.DEPLOY_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
+          publish_dir: public
+          destination_dir: deploy
+          keep_files: true
+          disable_nojekyll: true
 
       - name: Get the output
         run: |
