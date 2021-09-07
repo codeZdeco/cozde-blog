@@ -30,4 +30,4 @@ jobs:
 
       - name: Deploy
         # You may pin to the exact commit or the version.
-        uses: codezdeco/cozde-blog@master
+        uses: sma11black/hexo-action@v1.0.4
