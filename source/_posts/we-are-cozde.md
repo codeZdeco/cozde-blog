@@ -1,5 +1,5 @@
 ---
 title: Hello World
 tags:
-  - hello
+  - hello world
 ---
