@@ -40,7 +40,7 @@ jobs:
             ${{ runner.OS }}-npm-cache
       
       - name: Use hexo latest
-        run: }
+        run: |
           npm install -g hexo-cli
           npm install -g yarn
 
