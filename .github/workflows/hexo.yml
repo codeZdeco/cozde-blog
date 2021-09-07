@@ -38,6 +38,9 @@ jobs:
           key: ${{ runner.OS }}-npm-cache
           restore-keys: |
             ${{ runner.OS }}-npm-cache
+      
+      - name: Use hexo latest
+        run: npm install -g hexo-cli
 
       - name: Install Dependencies
         run: npm install
