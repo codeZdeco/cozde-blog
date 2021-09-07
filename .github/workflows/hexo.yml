@@ -27,42 +27,25 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: master
-      
-      - name: Cache node modules
-        uses: actions/cache@v1
-        id: cache
+
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+
+      - name: Cache NPM dependencies
+        uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.OS }}-npm-cache
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.OS }}-npm-cache
 
       - name: Install Dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
-        run: npm ci
+        run: npm install
 
-      - name: Get the output
-        run: |
-          echo "${{ steps.deploy.outputs.notify }}"
-
-      # - name: Install hexo if not exist
-      #   run: |
-      #     if ! command -v hexo &> /dev/null
-      #     then
-      #         npm install -g hexo-cli 
-      #         exit
-      #     fi
-
-      # - name: Setting git authen
-      #   run: |
-      #     /usr/bin/git remote rm origin
-      #     /usr/bin/git remote add origin ***github.com/${{ github.repository }}.git
-      #     /usr/bin/git add --all
-      #     /usr/bin/git config user.name ${{ github.actor }}
-      #     /usr/bin/git config user.email ${{ github.actor }}@users.noreply.github.com
-
-      # - name: Deploy
-      #   run: hexo clean && hexo deploy
+      - name: Build
+        run: npm run build
           
       - name: Deploy
         # You may pin to the exact commit or the version.
@@ -70,7 +53,6 @@ jobs:
         with:
           deploy_key: ${{ secrets.DEPLOY_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
           publish_branch: gh-pages
           disable_nojekyll: true
 
