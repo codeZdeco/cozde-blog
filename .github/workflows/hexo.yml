@@ -40,13 +40,15 @@ jobs:
             ${{ runner.OS }}-npm-cache
       
       - name: Use hexo latest
-        run: npm install -g hexo-cli
+        run: }
+          npm install -g hexo-cli
+          npm install -g yarn
 
       - name: Install Dependencies
         run: npm install
 
       - name: Build
-        run: npm run build
+        run: yarn build
           
       - name: Deploy
         # You may pin to the exact commit or the version.
