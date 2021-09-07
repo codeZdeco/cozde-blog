@@ -54,7 +54,8 @@ jobs:
           publish_branch: gh-pages
           publish_dir: public
           destination_dir: deploy
-          keep_files: true
+          user_name: boylavua18
+          user_email: minhpq.contact@gmail.com
           disable_nojekyll: true
 
       - name: Get the output
