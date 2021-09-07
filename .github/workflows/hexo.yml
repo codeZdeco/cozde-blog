@@ -49,6 +49,8 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
           publish_branch: gh-pages
+          disable_nojekyll: true
+          force_orphan: true
 
       - name: Get the output
         run: |
