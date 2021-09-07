@@ -46,6 +46,9 @@ jobs:
         uses: sma11black/hexo-action@v1.0.4
         with:
           deploy_key: ${{ secrets.DEPLOY_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+            publish_branch: master  # deploying branch
 
       - name: Get the output
         run: |
