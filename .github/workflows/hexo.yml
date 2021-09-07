@@ -26,10 +26,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Use Node.js 12.x
+      - name: Use Node.js 14.x
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: '14.x'
 
       - name: Cache NPM dependencies
         uses: actions/cache@v2
@@ -43,10 +43,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: |
-          git config --global user.name ${{ github.actor }}
-          git config --global user.email ${{ github.actor }}@users.noreply.github.com
-          npm run build && npm run deploy
+        run: npm run build
           
       - name: Deploy
         # You may pin to the exact commit or the version.
